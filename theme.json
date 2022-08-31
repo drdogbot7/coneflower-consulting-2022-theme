@@ -1,0 +1,155 @@
+{
+	"$schema": "https://raw.githubusercontent.com/WordPress/gutenberg/trunk/schemas/json/theme.json",
+	"version": 2,
+	"settings": {
+		"appearanceTools": false,
+		"border": {
+			"color": false,
+			"radius": false,
+			"style": false,
+			"width": false
+		},
+		"color": {
+			"background": true,
+			"custom": false,
+			"customDuotone": false,
+			"customGradient": false,
+			"defaultGradients": false,
+			"defaultPalette": false,
+			"duotone": [],
+			"gradients": [],
+			"link": true,
+			"palette": [
+				{
+					"name": "Black",
+					"slug": "black",
+					"color": "#000000"
+				},
+				{
+					"name": "Dark Gray",
+					"slug": "dark-gray",
+					"color": "#292524"
+				},
+				{
+					"name": "Medium Gray",
+					"slug": "gray",
+					"color": "#737373"
+				},
+				{
+					"name": "LightGray",
+					"slug": "light-gray",
+					"color": "#f5f5f5"
+				},
+				{
+					"name": "White",
+					"slug": "white",
+					"color": "#ffffff"
+				},
+				{
+					"slug": "blue",
+					"color": "#3b82f6",
+					"name": "Red"
+				},
+				{
+					"slug": "red",
+					"color": "#ef4444",
+					"name": "Blue"
+				}
+			],
+			"text": true
+		},
+		"custom": {},
+		"spacing": {
+			"blockGap": true,
+			"margin": true,
+			"padding": true,
+			"units": ["rem"]
+		},
+		"typography": {
+			"customFontSize": false,
+			"dropCap": false,
+			"fontFamilies": [],
+			"fontSizes": [
+				{
+					"name": "Extra Small",
+					"size": "var(--theme--preset--font-size--x-small)",
+					"slug": "x-small"
+				},
+				{
+					"name": "Small",
+					"size": "var(--theme--preset--font-size--small)",
+					"slug": "small"
+				},
+				{
+					"name": "Medium",
+					"size": "var(--theme--preset--font-size--medium)",
+					"slug": "medium"
+				},
+				{
+					"name": "Large",
+					"size": "var(--theme--preset--font-size--large)",
+					"slug": "large"
+				},
+				{
+					"name": "Extra Large",
+					"size": "var(--theme--preset--font-size--x-large)",
+					"slug": "x-large"
+				},
+				{
+					"name": "2XL",
+					"size": "var(--theme--preset--font-size--2-x-large)",
+					"slug": "2-x-large"
+				},
+				{
+					"name": "3XL",
+					"size": "var(--theme--preset--font-size--3-x-large)",
+					"slug": "3-x-large"
+				}
+			],
+			"fontStyle": false,
+			"fontWeight": false,
+			"letterSpacing": false,
+			"lineHeight": false,
+			"textDecoration": true,
+			"textTransform": false
+		},
+		"layout": {
+			"contentSize": "782px",
+			"wideSize": "1080px"
+		},
+		"blocks": {
+			"core/heading": {
+				"typography": {
+					"fontSizes": []
+				}
+			},
+			"core/button": {
+				"border": {
+					"radius": false
+				},
+				"typography": {
+					"fontSizes": []
+				}
+			},
+			"core/separator": {
+				"color": {
+					"palette": []
+				}
+			}
+		}
+	},
+	"styles": {
+		"blocks": {},
+		"spacing": {
+			"blockGap": "2rem"
+		},
+		"elements": {
+			"link": {
+				"border": {},
+				"color": {},
+				"spacing": {},
+				"typography": {}
+			}
+		}
+	}
+}

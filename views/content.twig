@@ -1,0 +1,24 @@
+<article class="
+	{{ fn('get_post_class')|join(' ') }}
+	{{
+	fn('is_sticky')
+		? ' border border-black p-2'
+		: ''
+	}}
+">
+	<header>
+		<h2 class="font-display mb-0 text-2xl">
+			<a class="text-primary hover:underline" href="{{ post.link }}">
+				{{ post.title }}
+			</a>
+		</h2>
+		<div class="text-sm text-gray-400">
+			{% include 'meta.twig' with {
+				post: post
+			} %}
+		</div>
+	</header>
+	<div class="mt-2 text-sm">
+		{{ post.excerpt }}
+	</div>
+</article>

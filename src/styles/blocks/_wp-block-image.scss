@@ -1,0 +1,10 @@
+/**
+ * Block editor image block.
+ */
+
+.wp-block-image figcaption {
+	@apply text-sm;
+
+	font-style: oblique;
+	text-align: center;
+}

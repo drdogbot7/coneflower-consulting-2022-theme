@@ -1,0 +1,25 @@
+@import 'wp-block-button';
+@import 'wp-block-file';
+@import 'wp-block-group';
+@import 'wp-block-heading';
+@import 'wp-block-image';
+@import 'wp-block-list';
+@import 'wp-block-media-text';
+@import 'wp-block-paragraph';
+@import 'wp-block-quote';
+@import 'wp-block-separator';
+@import 'wp-block-table';
+
+/**
+ * block spacing
+ * Using default block gap setting from theme.json
+ * 
+ * :where used to reduce specificity
+ */
+.content :where([class*='wp-block-']:not(:first-child)) {
+	margin-top: var(--wp--style--block-gap);
+}
+
+.editor-styles-wrapper {
+	font-family: theme('fontFamily.sans');
+}

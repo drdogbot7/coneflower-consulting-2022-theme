@@ -1,0 +1,18 @@
+/**
+ * Block editor paragraph block
+ * 
+ * Unfortunately these don't have classes by default >:(
+ * Using :where selector to reduce specificity
+ */
+
+/* default size and line height for paragraphs */
+
+.editor-styles-wrapper :where(p:not(:first-child)),
+.content :where(p:not(:first-child)) {
+	margin-top: var(--wp--style--block-gap);
+}
+
+.editor-styles-wrapper :where(p + p),
+.content :where(p + p) {
+	margin-top: calc(var(--wp--style--block-gap) / 2);
+}

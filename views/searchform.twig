@@ -1,0 +1,20 @@
+<form class="flex"
+	role="search"
+	method="get"
+	class="search-form"
+	action="index.php">
+	<label>
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search"
+			class=""
+			placeholder="{{ request.get.s ? request.get.s : 'Search…' }}"
+			value=""
+			name="s"
+			title="Search for:" />
+	</label>
+	<button class="px-4 bg-gray-200 border border-l-0 border-gray-500"
+		type="submit"
+		class="search-submit">
+		Search
+	</button>
+</form>
