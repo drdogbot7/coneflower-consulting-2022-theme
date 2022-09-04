@@ -20,6 +20,7 @@
 		},
 		"platform": {
 			"php": "8.0"
-		}
+		},
+		"platform-check": false
 	}
 }
