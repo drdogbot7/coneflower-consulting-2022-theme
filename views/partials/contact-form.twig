@@ -1,0 +1,11 @@
+{% extends 'partials/modal.twig' %}
+
+{% block content %}
+	<div class="flex items-center justify-center w-full h-full">
+		<div class="w-sm text-sm">
+			{% apply shortcodes %}
+				[contact-form-7 id="350" title="Contact form 1"]
+			{% endapply %}
+		</div>
+	</div>
+{% endblock %}

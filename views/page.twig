@@ -1,13 +1,18 @@
 {% extends 'base.twig' %}
 
 {% block content %}
+	{% if post.thumbnail %}
+		<div class="md:mt-6 max-w-screen-lg mx-auto mt-4">
+			<img class="clip-poly bg-gray-50" src="{{ post.thumbnail }}" />
+		</div>
+	{% endif %}
 	<article {{ function('post_class', 'max-w-screen-md mx-auto') }}>
-		<header class="{{ post.hide_title == 'true' ? 'hidden' : '' }}">
-			<h1 class="text-3xl font-display">
+		<header class="{{ post.hide_page_title == 'true' ? 'hidden' : '' }}">
+			<h1 class="font-display md:mt-12 mt-8 text-5xl font-semibold text-center">
 				{{ post.title }}
 			</h1>
 		</header>
-		<div class="mt-8 content">
+		<div class="content mt-8">
 			{{ post.content }}
 		</div>
 	</article>

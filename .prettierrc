@@ -1,5 +1,6 @@
 {
-  "useTabs": true,
-  "singleQuote": true,
-  "plugins": ["./node_modules/prettier-plugin-twig-melody"]
+	"useTabs": true,
+	"singleQuote": true,
+	"plugins": ["./node_modules/prettier-plugin-twig-melody"],
+	"twigMultiTags": ["apply,endapply"]
 }

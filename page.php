@@ -11,14 +11,17 @@ $context = Timber::context();
 
 if (post_password_required($post->ID)) {
 	Timber::render('single-password.twig', $context);
-} else {
-	Timber::render(
-		[
-			'page-' . $post->ID . '.twig',
-			'page-' . $post->post_type . '.twig',
-			'page-' . $post->slug . '.twig',
-			'page.twig',
-		],
-		$context
-	);
 }
+
+$templates = [
+	'page-' . $post->ID . '.twig',
+	'page-' . $post->post_type . '.twig',
+	'page-' . $post->slug . '.twig',
+	'page.twig',
+];
+
+if (is_front_page()) {
+	array_unshift($templates, 'front-page.twig');
+}
+
+Timber::render($templates, $context);

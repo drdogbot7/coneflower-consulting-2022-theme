@@ -1,0 +1,37 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+	<section class="max-w-screen-lg mx-auto">
+		<div class="relative text-white bg-purple-500 aspect-[4/3] flex items-center clip-poly p-8">
+			<img class="absolute inset-0 object-cover w-full h-full"
+				src="{{ theme.link ~ '/static/hero-animation.svg' }}"
+				role="decoration" />
+			<div class="font-display lg:text-5xl relative z-10 text-3xl font-thin text-center">
+				Empowering Mission-Driven Organizations with Strategies for Creative
+				Growth
+			</div>
+		</div>
+	</section>
+
+	<section class="max-w-screen-md mx-auto mt-8 space-y-4 leading-loose">
+		<p>
+			At Coneflower Consulting, we are committed to helping your mission-driven
+			small business or non-profit flourish no matter where you&apos;re planted.
+			We excel at understanding the context in which you&apos;re working quickly
+			so that we can get started solving your problems right away.
+		</p>
+		<p>
+			We are a woman-owned business, proudly located in Lawrence, KS and serving
+			organizations, small businesses and individuals in Douglas county, Kansas
+			City and nationwide.
+		</p>
+	</section>
+
+	<hr class="wp-block-separator has-alpha-channel-opacity max-w-screen-md mx-auto" />
+
+	{% include 'partials/testimonials.twig' %}
+
+	<hr class="wp-block-separator has-alpha-channel-opacity max-w-screen-md mx-auto" />
+
+	{% include 'partials/clients.twig' %}
+{% endblock %}

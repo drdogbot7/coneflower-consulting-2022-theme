@@ -1,0 +1,21 @@
+.tns-nav {
+	display: flex;
+	justify-content: center;
+	margin-top: 1rem;
+	gap: 0.6rem;
+}
+
+.tns-nav > button {
+	width: 1rem;
+	height: 1rem;
+	background-color: theme('colors.purple.200');
+	transform: rotate(45deg);
+}
+
+.tns-nav > button:hover {
+	background-color: theme('colors.orange.500');
+}
+
+.tns-nav > button.tns-nav-active {
+	background-color: theme('colors.purple.500');
+}

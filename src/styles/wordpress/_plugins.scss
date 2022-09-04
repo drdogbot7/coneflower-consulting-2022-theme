@@ -1,3 +1,23 @@
 /**
  * Styles related to Wordpress Plugins
  */
+
+.wpcf7-form > label {
+	display: block;
+}
+
+.wpcf7-form-control.wpcf7-submit {
+	display: block;
+	background-color: var(--wp--preset--color--purple);
+	border-radius: theme('borderRadius.none');
+	color: var(--wp--preset--color--white);
+	cursor: pointer;
+	font-family: theme('fontFamily.display');
+	font-size: var(--wp--preset--font-size--base);
+	padding-block: 0.5em;
+	padding-inline: 1.5em;
+}
+
+.wpcf7-form-control.wpcf7-submit:hover {
+	background-color: theme('colors.purple.700');
+}

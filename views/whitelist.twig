@@ -1,1 +1,25 @@
-<div class="sticky"></div>
+<div class="sticky mt-0 mt-1 mt-2"></div>
+
+<div class="space-y-4">
+  <div>
+    <label class="block">Name</label>
+    [text* your-name]
+  </div>
+  
+  <div>
+    <label class="block">Email</label>
+    [email* your-email]
+  </div>
+  
+  <div>
+    <Label class="block">Interested in</label>
+    [select interest multiple include_blank "Programming & Event Planning" "Website and Graphic Design" "Grant Writing" "Fundraising" "Communications" "Strategic Planning" "Leadership"]
+  </div>
+  
+  <div>
+    <label class="block">Message</label>
+    [textarea your-message]
+  </div>
+  
+  [submit "Submit"]
+</div>

@@ -46,14 +46,19 @@
 					"color": "#ffffff"
 				},
 				{
-					"slug": "blue",
-					"color": "#3b82f6",
-					"name": "Red"
+					"name": "Orange",
+					"slug": "orange",
+					"color": "#E66A2C"
 				},
 				{
-					"slug": "red",
-					"color": "#ef4444",
-					"name": "Blue"
+					"name": "Purple",
+					"slug": "purple",
+					"color": "#4F3590"
+				},
+				{
+					"name": "Lime",
+					"slug": "lime",
+					"color": "#CDDC29"
 				}
 			],
 			"text": true

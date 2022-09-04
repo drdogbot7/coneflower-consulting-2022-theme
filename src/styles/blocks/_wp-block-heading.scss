@@ -9,6 +9,7 @@
 .editor-styles-wrapper :where(h1, h2, h3, h4, h5, h6),
 .content :where(h1, h2, h3, h4, h5, h6) {
 	font-family: theme('fontFamily.display');
+	font-weight: theme('fontWeight.semibold');
 }
 
 .editor-styles-wrapper :where(:is(h1, h2, h3, h4, h5, h6):not(:first-child)),
@@ -18,7 +19,7 @@
 
 .editor-styles-wrapper :where(h1),
 .content :where(h1) {
-	@apply text-6xl;
+	@apply text-5xl;
 }
 
 .editor-styles-wrapper :where(h2),

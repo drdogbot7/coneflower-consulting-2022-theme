@@ -12,8 +12,4 @@ if (is_home()) {
 	array_unshift($templates, 'home.twig');
 }
 
-if (is_front_page()) {
-	array_unshift($templates, 'front_page.twig');
-}
-
 Timber::render($templates, $context);

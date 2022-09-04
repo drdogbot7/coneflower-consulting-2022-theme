@@ -1,0 +1,89 @@
+{% set testimonials = [
+	{
+		quote: 'Sarah Bishop and her team at Coneflower Consulting are the best! Sarah has made real and significant contributions to Bert Nash Center and to the Douglas County behavioral healthcare continuum of care. Sarah feels like an integrated part of the Bert Nash Team. I have been in this industry for 20 years and Sarah is in the top 1 percent of professionals I have worked with.',
+		attribution: {
+			name: "Stephen O'Neill, LSCSWM, MBA",
+			title: 'Chief Operations Officer, Bert Nash Community Mental Health Center'
+		}
+	},
+	{
+		quote: "Coneflower Consulting was absolutely invaluable in getting my nonprofit off the ground. Coneflower's expertise and mentorship helped me navigate budgeting, grant writing, board recruitment, marketing, and nearly every other element of nonprofit work. Sarah's expertise is an invaluable asset for anyone looking to grow their nonprofit or thrive in the creative nonprofit field.",
+		attribution: {
+			name: 'Danny Caine',
+			title: 'Director, Paper Plains Literary Festival'
+		}
+	},
+	{
+		quote: 'Sarah Bishop and her team at Coneflower were able to assist our organization from the ground up. Offering our board of directors invaluable training and guidance, helped build strategic fundraising opportunities, and redesigned and streamlined the company website. Coneflower&apos;s breadth of knowledge and non-profit expertise has been an asset to our organization and will be instrumental for us being successful well into the future.',
+		attribution: {
+			name: 'Steven Kalich',
+			title: 'Executive Director, Depot Theater in Dodge City, Kansas'
+		}
+	},
+	{
+		quote: "Since we started working with Coneflower, our outreach efforts have risen to a new level! She is quick to sense which ideas will work and those that will not. When she shops a new idea with folks she has previously collaborated with, I've noticed that they love to hear from her and are excited to work with her again. She makes sure that everyone on the team shares in a job well done and knows that they are valued and appreciated.",
+		attribution: {
+			name: 'Dennis Brown',
+			title: 'President, Lawrence Preservation Alliance'
+		}
+	},
+	{
+		quote: 'During a time when virtual engagement has taken on critical importance, Coneflower Consulting gave our social media a thoughtful and creative boost based on a clear communications plan that reflected our institutional voice and goals.',
+		attribution: {
+			name: 'Audrey Coleman',
+			title: 'Executive Director of The Dole Institute of Politics'
+		}
+	},
+	{
+		quote: 'The Institute for Digital Research in the Humanities at the University of Kansas has been happy to work with Coneflower Consulting on its most recent National Endowment for the Humanities grant project, the Public Digital Humanities Institute.  Coneflower is helping humanities faculty learn about the non-profit field and connect with non-profit partners in new and exciting ways that are mutually beneficial to both the non-profit and academic sectors.',
+		attribution: {
+			name: 'Brian Rosenblum',
+			title: 'Co-Director, Institute for Digital Research in the Humanities'
+		}
+	},
+	{
+		quote: 'For non-profits, the task of keeping afloat is tough given that most are founded by people not all that experienced at running business and would prefer to focus on doing good for their community. This is where the great people at Coneflower step in. With their help, I know the steps I need to take and feel empowered to take them. In addition to all that they do, they will also remain some of your best hype people. Thank you Coneflower crew!',
+		attribution: {
+			name: 'David Tamez',
+			title: 'Editor-in-Chief/Co-Founder, Lawrence Talks'
+		}
+	}
+] %}
+
+<section class="max-w-screen-lg mx-auto mt-8"
+  x-data="{
+    init() {
+      logoCarousel = tns({
+        container: this.$refs.logoCarousel,
+        items: 1,
+        autoplayTimeout: 6000,
+        autoplay: true,
+        controls: false,
+        autoplayButtonOutput: false,
+        navPosition: 'bottom',
+      })
+    }
+  }"
+>
+	<div class="relative">
+    <div class="sm:block absolute hidden w-16">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="fill-purple-500 w-full">
+      <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+      <path d="M96 224C84.72 224 74.05 226.3 64 229.9V224c0-35.3 28.7-64 64-64c17.67 0 32-14.33 32-32S145.7 96 128 96C57.42 96 0 153.4 0 224v96c0 53.02 42.98 96 96 96s96-42.98 96-96S149 224 96 224zM352 224c-11.28 0-21.95 2.305-32 5.879V224c0-35.3 28.7-64 64-64c17.67 0 32-14.33 32-32s-14.33-32-32-32c-70.58 0-128 57.42-128 128v96c0 53.02 42.98 96 96 96s96-42.98 96-96S405 224 352 224z"/></svg>
+    </div>
+    <div class="w-full">
+      <div x-ref="logoCarousel">
+        {% for testimonial in testimonials %}
+          <blockquote class="sm:pl-24">
+            <p class="text-sm leading-loose text-purple-500">
+              {{ testimonial.quote }}
+            </p>
+            <footer class="mt-4 text-xs text-gray-600">
+              <span class="font-bold">{{ testimonial.attribution.name }}</span>,<br />
+              {{ testimonial.attribution.title }}
+            </footer>
+          </blockquote>
+        {% endfor %}
+      </div>
+  </div>
+</section>

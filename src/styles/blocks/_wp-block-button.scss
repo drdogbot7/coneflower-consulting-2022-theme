@@ -4,11 +4,16 @@
 
 .wp-block-button__link {
 	background-color: var(--wp--preset--color--dark-gray);
-	border-radius: theme('borderRadius.lg');
-	color: var(--wp--preset--color--light-gray);
+	border-radius: theme('borderRadius.none');
+	color: var(--wp--preset--color--white);
+	font-family: theme('fontFamily.display');
 	font-size: var(--wp--preset--font-size--base);
 	padding-block: 0.5em;
 	padding-inline: 1.5em;
+}
+
+.wp-block-button__link:any-link {
+	color: var(--wp--preset--color--white);
 }
 
 .wp-block-button__link:focus,
@@ -25,6 +30,6 @@
 }
 
 .is-style-large > .wp-block-button__link {
-	border-radius: theme('borderRadius.xl');
+	border-radius: theme('borderRadius.none');
 	font-size: var(--wp--preset--font-size--large);
 }
