@@ -1,0 +1,137 @@
+{% extends 'base.twig' %}
+
+{% if post.desktop and post.mobile %}
+	{% set desktop = get_post(post.desktop) %}
+	{% set mobile = get_post(post.mobile) %}
+{% endif %}
+
+{% block content %}
+	<div class="bg-gradient-to-br from-gray-500 to-gray-700 md:p-6 relative p-4">
+		<div class="top-4 left-4 hover:opacity-100 absolute z-10 opacity-50">
+			<div class="wp-block-button">
+				<a class="wp-block-button__link" href="/portfolio">Back to Portfolio</a>
+			</div>
+		</div>
+		<div class="lg:px-0 max-w-screen-lg px-2 mx-auto">
+			{% if post.desktop and post.mobile %}
+				<div class="aspect-[3/2] lg:aspect-video relative w-full">
+					<div class="absolute w-[90%] lg:w-[80%] top-[20px]"
+						data-aos="fade-left">
+						<img class="w-full"
+							src="{{ theme.link ~ '/static/screens-desktop.svg' }}" />
+						<img class="absolute w-[82%] left-[12%] top-[3%] rounded-sm"
+							src="{{ desktop.src|resize(630)|towebp }}" />
+					</div>
+					<div class="absolute lg:w-[22%] w-[25%] bottom-0 right-0 rounded-lg"
+						data-aos="fade-right">
+						<img class="w-full"
+							src="{{ theme.link ~ '/static/screens-mobile.svg' }}" />
+						<img class="absolute w-[91%] left-[4.5%] top-[3%] rounded-sm"
+							src="{{ mobile.src|resize(192)|towebp }}" />
+					</div>
+				</div>
+			{% elseif (post.meta('gallery')|length) > 1 %}
+				<div x-data="{
+						init() {
+							portfolioCarousel = tns({
+								container: this.$refs.portfolioCarousel,
+								items: 1,
+								autoplayTimeout: 6000,
+								autoplay: true,
+								controls: false,
+								autoplayButtonOutput: false,
+								navPosition: 'bottom',
+							})
+						}
+					}"
+				>
+					<div x-ref="portfolioCarousel">
+						{% for image in post.meta('gallery') %}
+							<div class="aspect-[3/2] md:aspect-video relative w-full">
+								<img class="drop-shadow-lg object-contain w-full h-full"
+									src="{{ get_image(image).src|resize(0, 540)|towebp }}" />
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			{% elseif post.thumbnail.src %}
+				<div class="aspect-[3/2] md:aspect-video relative w-full">
+					<img class="drop-shadow-lg object-contain w-full h-full"
+						src="{{ post.thumbnail.src|resize(0, 540)|towebp }}" />
+				</div>
+			{% endif %}
+		</div>
+	</div>
+	<article {{
+		function(
+			'post_class',
+			'max-w-screen-lg mx-auto px-2 lg:px-0 mt-12'
+		)
+		}}>
+		<header>
+			<h1 class="font-display text-4xl">
+				{{ post.title }}
+			</h1>
+		</header>
+		<div class="sm:flex-row gap-x-12 gap-y-8 flex flex-col mt-8">
+			<div class="content">
+				{{ post.content }}
+			</div>
+			<div class="shrink-0 sm:w-1/4">
+				<h4 class="text-xs font-bold uppercase">
+					Category:
+				</h4>
+				<ul class="text-sm">
+					{% for term in post.terms %}
+						<li>{{ term }}</li>
+					{% endfor %}
+				</ul>
+				{% if post.client %}
+					<h4 class="mt-4 text-xs font-bold uppercase">
+						Client:
+					</h4>
+					<p class="text-sm">
+						{{ post.client }}
+					</p>
+				{% endif %}
+				{% if post.website %}
+					<p class="mt-4 text-sm">
+						<a class="decoration-purple-300 hover:decoration-purple-500 underline-offset-2 underline"
+							href="{{ post.website }}">
+							{{
+								post.website|replace({
+									'https://': '',
+									'http://': ''
+								})
+							}}
+						</a>
+					</p>
+				{% endif %}
+			</div>
+		</div>
+		{% if post.youtube_id %}
+			<div class="mt-12 aspect-video [&>iframe]:w-full [&>iframe]:h-full">
+				<iframe title="evanwilliamscatering.com demo"
+					width="500"
+					height="281"
+					src="https://www.youtube.com/embed/{{
+					post.youtube_id
+					}}?feature=oembed&autoplay=1&mute=1&modestbranding=1&loop=1"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen=""></iframe>
+			</div>
+		{% elseif post.vimeo_id %}
+			<div class="mt-12 aspect-video [&>iframe]:w-full [&>iframe]:h-full">
+				<iframe src="https://player.vimeo.com/video/{{
+					post.vimeo_id
+					}}?background=1"
+					width="640"
+					height="360"
+					frameborder="0"
+					allow="autoplay; fullscreen"
+					allowfullscreen></iframe>
+			</div>
+		{% endif %}
+	</article>
+{% endblock %}

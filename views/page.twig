@@ -6,9 +6,9 @@
 			<img class="clip-poly bg-gray-50" src="{{ post.thumbnail }}" />
 		</div>
 	{% endif %}
-	<article {{ function('post_class', 'max-w-screen-md mx-auto') }}>
+	<article {{ function('post_class', 'max-w-screen-md mx-auto px-2 md:px-0') }}>
 		<header class="{{ post.hide_page_title == 'true' ? 'hidden' : '' }}">
-			<h1 class="font-display md:mt-12 mt-8 text-5xl font-semibold text-center">
+			<h1 class="font-display md:mt-12 mt-8 text-5xl font-semibold text-center break-normal">
 				{{ post.title }}
 			</h1>
 		</header>

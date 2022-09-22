@@ -16,40 +16,7 @@
 	'static/logos/logo-vinland-valley-nursery.svg'
 ] %}
 
-{# <section
-  class="max-w-screen-xl mx-auto mt-8"
-  x-data="{
-    init() {
-      logoCarousel = tns({
-        container: this.$refs.logoCarousel,
-        items: 2,
-        autoplayTimeout: 3000,
-        slideBy: 'page',
-        autoplay: true,
-        controls: false,
-        nav: false,
-        autoplayButtonOutput: false,
-        responsive: {
-          600: {
-            items: 3,
-          },
-        }
-      })
-    }
-  }"
->
-	<div x-ref="logoCarousel">
-		{% for logo in logos %}
-			<div class="px-4">
-        <img class="aspect-[3/2] w-full h-full object-contain"
-          src="{{ theme.link ~ '/' ~ logo }}"
-          role="decoration" />
-      </div>
-		{% endfor %}
-	</div>
-</section> #}
-
-<section class="max-w-screen-xl mx-auto mt-8">
+<section class="sm:px-0 max-w-screen-xl px-2 mx-auto mt-8">
 	<div class="lg:grid-cols-5 sm:gap-6 sm:grid-cols-4 lg:gap-8 grid grid-cols-3 gap-4">
 		{% for logo in logos %}
 			<img class="aspect-[3/2] w-full h-full object-contain"

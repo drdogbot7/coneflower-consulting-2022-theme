@@ -12,7 +12,10 @@
 	],
 	"require": {
 		"timber/timber": "^2.00",
-		"hellonico/timber-dump-extension": "^1.0"
+		"hellonico/timber-dump-extension": "^1.0",
+		"johnbillion/extended-cpts": "^5.0",
+		"vinkla/extended-acf": "^13.1",
+		"palmiak/timber-acf-wp-blocks": "^1.15"
 	},
 	"config": {
 		"allow-plugins": {

@@ -5,12 +5,16 @@
  */
 
 .content :where(a:any-link) {
-	color: theme('colors.blue.500');
+	// color: theme('colors.blue.500');
+	text-decoration: underline;
+	text-decoration-color: theme('colors.purple.300');
+	text-underline-offset: 2px;
 }
 
 .content :where(a:hover),
 .content :where(a:active) {
-	text-decoration: underline;
+	color: theme('colors.purple.500');
+	text-decoration-color: theme('colors.purple.500');
 }
 
 /**

@@ -28,6 +28,12 @@ add_action('enqueue_block_editor_assets', 'salvia_enqueue_editor', 100);
 add_action('init', 'salvia_disable_comments');
 add_action('admin_init', 'salvia_disable_comments_admin');
 
+// Custom Post Types + Taxonomies
+add_action('init', 'salvia_cpts');
+
+// Custom Fields
+add_action('acf/init', 'salvia_acf');
+
 // Add to Timber Context
 function salvia_add_to_context($context)
 {
@@ -186,4 +192,98 @@ function salvia_disable_comments_admin()
 
 	// Remove comments page in menu
 	remove_menu_page('edit-comments.php');
+}
+
+// Custom Post Types + Taxonomies
+
+// Portfolio custom post type
+function salvia_cpts()
+{
+	register_extended_post_type(
+		'portfolio',
+		[
+			'archive' => [
+				'nopaging' => true,
+			],
+		],
+		[
+			# Override the base names used for labels:
+			'singular' => 'Portfolio',
+			'plural' => 'Portfolio',
+			'slug' => 'portfolio',
+		]
+	);
+	register_extended_taxonomy(
+		'portfolio_category',
+		'portfolio',
+		[],
+		[
+			# Override the base names used for labels:
+			'singular' => 'Category',
+			'plural' => 'Categories',
+			'slug' => 'category',
+		]
+	);
+}
+
+// ACF Fields
+use Extended\ACF\Fields\Gallery;
+use Extended\ACF\Fields\Image;
+use Extended\ACF\Fields\Oembed;
+use Extended\ACF\Fields\Url;
+use Extended\ACF\Fields\Text;
+use Extended\ACF\Location;
+
+function salvia_acf()
+{
+	register_extended_field_group([
+		'title' => 'Portfolio Meta',
+		'fields' => [
+			Text::make('Client')->instructions('Optional. Name of client'),
+			Url::make('Website')->instructions(
+				'Optional. Add the client website.'
+			),
+		],
+		'menu_order' => 0,
+		'style' => 'default',
+		'location' => [Location::where('post_type', 'portfolio')],
+	]);
+	register_extended_field_group([
+		'title' => 'Portfolio Media',
+		'fields' => [
+			Gallery::make('Gallery')
+				->mimeTypes(['jpg', 'jpeg', 'png', 'svg', 'webp'])
+				->returnFormat('id'),
+			Text::make('Youtube ID'),
+			Text::make('Vimeo ID'),
+		],
+		'menu_order' => 20,
+		'style' => 'default',
+		'location' => [Location::where('post_type', 'portfolio')],
+	]);
+	register_extended_field_group([
+		'title' => 'Portfolio Website',
+		'fields' => [
+			Image::make('Desktop')
+				->mimeTypes(['jpg', 'jpeg', 'png'])
+				->Instructions('Desktop Screenshot 1280x720')
+				->returnFormat('id')
+				->width(1280, 1280)
+				->height(720, 720),
+			Image::make('Mobile')
+				->mimeTypes(['jpg', 'jpeg', 'png'])
+				->Instructions('Mobile Screenshot 375x667')
+				->returnFormat('id')
+				->width(375, 375)
+				->height(667, 667),
+		],
+		'menu_order' => 10,
+		'style' => 'default',
+		'location' => [
+			Location::where('post_type', 'portfolio')->and(
+				'post_taxonomy',
+				'5'
+			),
+		],
+	]);
 }
