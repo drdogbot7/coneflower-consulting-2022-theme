@@ -51,8 +51,12 @@
 		</div>
 
 		<div class="gap-x-2 md:flex hidden">
+		<a class="font-display hover:bg-purple-700 px-4 py-3 text-xs leading-none text-white uppercase bg-purple-500 rounded-sm" href="/contact/">
+			Contact
+		</a>
 		<!-- Contact Button -->
-			<div class="" x-data="{ open: false }">
+			{# AJAX submission was not working with CF7. #}
+			{# <div class="" x-data="{ open: false }">
 
 				<span @click="open = true">
 					<button class="font-display hover:bg-purple-700 px-4 py-3 text-xs leading-none text-white uppercase bg-purple-500 rounded-sm">
@@ -63,7 +67,7 @@
 				<!-- Mobile Overlay Menu -->
 				{% include "partials/contact-form.twig" %}
 
-			</div>
+			</div> #}
 		</div>
 
 		<!-- Mobile Nav -->
