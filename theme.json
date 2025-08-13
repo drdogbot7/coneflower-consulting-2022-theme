@@ -71,6 +71,7 @@
 			"units": ["rem"]
 		},
 		"typography": {
+			"defaultFontSizes": false,
 			"customFontSize": false,
 			"dropCap": false,
 			"fontFamilies": [],
